@@ -1,0 +1,26 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stage": {
+            "value": {
+                "VN": 1,
+                "WA": 0
+            }
+        },
+        "DeploymentInfo": {
+            "value": {
+                "vnInfo": [
+                    {
+                        "name": "bicepdemo-vnet"
+                    }
+                ],
+                "waInfo": [
+                    {
+                        "name": "bicepdemo-webapp"
+                    }
+                ]
+            }
+        }
+    }
+}
