@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stage": {
+            "value": {
+                "SA": 1,
+                "VM": 0,
+                "OMS": 0,
+                "KV": 0,
+                "CDN": 0
+            }
+        },
+        "DeploymentInfo": {
+            "value": {
+                "saInfo": [
+                    {
+                        "name": ""
+                    },
+                    {
+                        "name": "bicepdemo5412d2"
+                    }
+                ],
+                "vmInfo": [
+                    {
+                        "name": "vm1",
+                        "asname": "as1"
+                    },
+                    {
+                        "name": "vm2",
+                        "asname": "as1"
+                    }
+                ],
+                "sbInfo": [
+                    {
+                        "name": "vm1"
+                    },
+                    {
+                        "name": "vm2"
+                    }
+                ]
+            }
+        }
+    }
+}
