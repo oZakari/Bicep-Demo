@@ -2,7 +2,7 @@ param virtualNetworkInfo object
 
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-02-01' = {
   name: 'vn-${virtualNetworkInfo.name}'
-  location: 'resourceGroup().location'
+  location: resourceGroup().location
   tags: {
     tagName1: 'Demo'
   }

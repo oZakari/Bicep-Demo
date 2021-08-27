@@ -5,7 +5,9 @@
         "stage": {
             "value": {
                 "VN": 1,
-                "WA": 0
+                "WA": 1,
+                "NSG": 1,
+                "ASP": 1
             }
         },
         "DeploymentInfo": {
@@ -15,9 +17,26 @@
                         "name": "bicepdemo-vnet"
                     }
                 ],
+                "aspinfo": [
+                    {
+                        "name": "bicepdemo-asp"
+                    }
+                ],
                 "waInfo": [
                     {
-                        "name": "bicepdemo-webapp"
+                        "name": "bicepdemo-webapp",
+                        "asp": "bicepdemo-asp"
+                    },
+                    {
+                        "name": "bicepdemo-webapp2",
+                        "asp": "bicepdemo-asp"
+                    }
+                ],
+                "saInfo": [
+                    {
+                        "name": "bicepdemo-1253",
+                        "skuName": "Standard_LRS",
+                        "kind": "StorageV2"
                     }
                 ]
             }

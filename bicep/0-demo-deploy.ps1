@@ -1,13 +1,7 @@
-$artifacts1 = $psscriptroot
 $rgname = 'bicepdemo'
 $region = 'CentralUS'
 Write-Warning -Message "Path is: [$artifacts1]"
 Write-Warning -Message "RG is: [$rgname] in Region: [$region]"
-break
-
-New-AzResourceGroup -Name $rgname -Location $region -Force
-
-# Create a layer above to orchestrate everything and provide features flags to use in Pipelines
 
 $MyParametersDeployALL = @{
     ResourceGroupName     = $rgname
@@ -16,13 +10,18 @@ $MyParametersDeployALL = @{
     WhatIf                = $false
 }
 
+break
+
+New-AzResourceGroup -Name $rgname -Location $region -Force
+
 # Orchestrate the deployment of all resources - VM and Storage or other
-#New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile $artifacts1\ALL.bicep
+New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\ALL.bicep
 
 # Deploy Single layer, inner dev loop - VM only
-New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile $artifacts1\VN.bicep
+New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\VN.bicep
 
 # Deploy Single layer, inner dev loop - Storage only
-New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile $artifacts1\WA.bicep
+New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\ASP.bicep
 
-Write-Warning -Message "Test"
+# Deploy Single layer, inner dev loop -  only
+New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\WA.bicep

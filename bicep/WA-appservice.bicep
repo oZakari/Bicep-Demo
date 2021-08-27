@@ -1,12 +1,16 @@
-param appServiceInfo object
+param webappinfo object
+
+resource ASP 'Microsoft.Web/serverfarms@2021-01-15' existing = {
+  name: 'asp-${webappinfo.asp}'
+}
 
 resource WS 'Microsoft.Web/sites@2021-01-01' = {
-  name: 'wa-${appServiceInfo.name}'
+  name: 'wa-${webappinfo.name}'
   kind: 'app'
   location: resourceGroup().location
   properties: {
     enabled: true
     httpsOnly: true
-    serverFarmId: resourceId('Microsoft.Web/serverfarms', 'wa-demo-asp.bicep')
+    serverFarmId: ASP.id
   }
 }

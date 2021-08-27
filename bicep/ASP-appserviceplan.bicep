@@ -1,7 +1,7 @@
 param appServicePlanInfo object
 
 resource ASP 'Microsoft.Web/serverfarms@2021-01-01' = {
-  name: 'wa-${appServicePlanInfo.name}'
+  name: 'asp-${appServicePlanInfo.name}'
   location: resourceGroup().location
   kind: 'app'
   properties: {
