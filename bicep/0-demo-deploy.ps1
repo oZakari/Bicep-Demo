@@ -1,11 +1,10 @@
 $rgname = 'bicepdemo'
 $region = 'CentralUS'
-Write-Warning -Message "Path is: [$artifacts1]"
 Write-Warning -Message "RG is: [$rgname] in Region: [$region]"
 
 $MyParametersDeployALL = @{
     ResourceGroupName     = $rgname
-    TemplateParameterFile = "$artifacts1\0-param-env1.json"
+    TemplateParameterFile = "C:\Repos\Bicep-Demo\Bicep-Demo\bicep\0-param-env1.json"
     Verbose               = $true
     WhatIf                = $false
 }
@@ -23,5 +22,8 @@ New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\VN.bi
 # Deploy Single layer, inner dev loop - Storage only
 New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\ASP.bicep
 
-# Deploy Single layer, inner dev loop -  only
+# Deploy Single layer, inner dev loop - WA only
 New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\WA.bicep
+
+# Deploy Single layer, inner dev loop - SA only
+New-AzResourceGroupDeployment @MyParametersDeployALL -TemplateFile .\bicep\SA.bicep

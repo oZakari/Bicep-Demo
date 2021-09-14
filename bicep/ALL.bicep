@@ -1,14 +1,6 @@
 param deploymentInfo object
 param stage object
 
-module SA 'SA.bicep' = if (stage.WA == 1) {
-  name: 'dp-SA'
-  params: {
-    deploymentInfo: deploymentInfo
-    stage: stage
-  }
-}
-
 module NSG 'NSG.bicep' = if (stage.NSG == 1) {
   name: 'dp-NSG'
   params: {
@@ -45,4 +37,12 @@ module WA 'WA.bicep' = if (stage.WA == 1) {
   dependsOn: [
     ASP
   ]
+}
+
+module SA 'SA.bicep' = if (stage.SA == 1) {
+  name: 'dp-SA'
+  params:{
+    deploymentInfo: deploymentInfo
+    stage: stage
+  }
 }

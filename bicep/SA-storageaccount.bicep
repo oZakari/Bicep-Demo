@@ -1,10 +1,10 @@
-param  saInfo object
+param saInfo object
 
 resource SA 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: saInfo.name
-  location: resourceGroup().location  
+  location: resourceGroup().location
   sku: {
-    name: saInfo.skuName
+    name:'Standard_LRS'
   }
   kind: saInfo.kind
 }
