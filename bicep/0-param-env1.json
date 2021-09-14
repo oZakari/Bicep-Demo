@@ -4,6 +4,7 @@
     "parameters": {
         "stage": {
             "value": {
+                "SA": 1,
                 "VN": 1,
                 "WA": 1,
                 "NSG": 1,
@@ -34,7 +35,7 @@
                 ],
                 "saInfo": [
                     {
-                        "name": "bicepdemo-1253",
+                        "name": "bicepdemo1253",
                         "skuName": "Standard_LRS",
                         "kind": "StorageV2"
                     }
