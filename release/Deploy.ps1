@@ -1,35 +1,29 @@
 param (
     [string]$Artifacts = (Get-Item -Path $PSScriptRoot | ForEach-Object Parent | ForEach-Object FullName),
-    [string]$Subscription = "ES-CE-LR-INT-ZTROCINSKI",
     [string]$Region = "Central US",
     [string]$RGName = "dev-bicep-demo"
 )
 
+$TemplateFile = "$Artifacts\bicep\SA.bicep"
+$TemplateParameterFile = "$Artifacts\bicep\0-param-dev-env.json"
+
 $Params = @{
     ResourceGroupName     = $RGName
-    TemplateParameterFile = "$Artifacts\bicep\0-param-dev-env.json"
-    TemplateFile          = "$Artifacts\bicep\SA.bicep"
+    TemplateParameterFile = $TemplateParameterFile
+    TemplateFile          = $TemplateFile
     Verbose               = $true
     WhatIf                = $false
 }
-
-Write-Warning -Message "Value of Artifacts is $Artifacts" -Verbose
-Write-Warning -Message "Value of RGName is $RGName" -Verbose
-Write-Warning -Message "Value of Region is $Region" -Verbose
-Write-Warning -Message "Value of Subscription is $Subscription" -Verbose
-Get-item -path $Artifacts -Verbose
-Get-item -path $TemplateFile -Verbose
-Get-item -path $TemplateParameterFile -Verbose
-
 $Params.getenumerator() | ForEach-Object {
-
     Write-Verbose $_.Key -Verbose
-
-    Write-Warning $_.Value -Verbose
-
+    Write-Warning $_.Value 
 }
-
-Set-AzContext -Subscription $Subscription
+Write-Warning -Message "Value of Artifacts is $Artifacts" 
+Write-Warning -Message "Value of RGName is $RGName" 
+Write-Warning -Message "Value of Region is $Region" 
+Get-item -path $Artifacts 
+Get-item -path $TemplateFile
+Get-item -path $TemplateParameterFile
 
 New-AzResourceGroup -Name $RGName -Location $Region -Force
 
