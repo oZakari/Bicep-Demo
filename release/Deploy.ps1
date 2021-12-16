@@ -1,5 +1,5 @@
 param (
-    [string] $Artifacts = (Get-Item -Path $PSScriptRoot | ForEach-Object Parent | ForEach-Object FullName),
+    [string]$Artifacts = (Get-Item -Path $PSScriptRoot | ForEach-Object Parent | ForEach-Object FullName),
     [string]$Subscription = "ES-CE-LR-INT-ZTROCINSKI",
     [string]$Region = "Central US",
     [string]$RGName = "dev-bicep-demo"
