@@ -15,27 +15,27 @@
             "value": {
                 "vnInfo": [
                     {
-                        "name": "bicepdemo-vnet"
+                        "name": "prod-bicepdemo-vnet"
                     }
                 ],
                 "aspinfo": [
                     {
-                        "name": "bicepdemo-asp"
+                        "name": "prod-bicepdemo-asp"
                     }
                 ],
                 "waInfo": [
                     {
-                        "name": "bicepdemo-webapp",
-                        "asp": "bicepdemo-asp"
+                        "name": "prod-bicepdemo-webapp",
+                        "asp": "prod-bicepdemo-asp"
                     },
                     {
-                        "name": "bicepdemo-webapp2",
-                        "asp": "bicepdemo-asp"
+                        "name": "prod-bicepdemo-webapp2",
+                        "asp": "prod-bicepdemo-asp"
                     }
                 ],
                 "saInfo": [
                     {
-                        "name": "bicepdemo1253",
+                        "name": "prodbicepdemo1253",
                         "skuName": "Standard_LRS",
                         "kind": "StorageV2"
                     }

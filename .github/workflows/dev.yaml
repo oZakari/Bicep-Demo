@@ -1,0 +1,43 @@
+# This is a basic workflow to help you get started with Actions
+name: Dev Pipeline
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push to the dev branch.
+  push:
+    branches: [ dev ]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  RG: bicep-demo-dev
+  region: CentralUS
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  EnvironmentDeploy:
+    runs-on: windows-latest
+    environment:
+      name: dev
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Login via Az module
+        uses: azure/login@v1
+        with:
+            client-id: ${{ secrets.CLIENTID }}
+            tenant-id: ${{ secrets.TENANTID }}
+            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
+            enable-AzPSSession: true
+
+      - name: Dev_Subscription
+        uses: Azure/powershell@v1
+        with:
+          inlineScript: ./release/Deploy.PS1 -Name $env:RGName -Location $env:Region
+          azPSVersion: latest
+
+
+    

@@ -1,0 +1,46 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "stage": {
+            "value": {
+                "SA": 1,
+                "VN": 1,
+                "WA": 1,
+                "NSG": 1,
+                "ASP": 1
+            }
+        },
+        "DeploymentInfo": {
+            "value": {
+                "vnInfo": [
+                    {
+                        "name": "dev-bicepdemo-vnet"
+                    }
+                ],
+                "aspinfo": [
+                    {
+                        "name": "dev-bicepdemo-asp"
+                    }
+                ],
+                "waInfo": [
+                    {
+                        "name": "dev-bicepdemo-webapp",
+                        "asp": "dev-bicepdemo-asp"
+                    },
+                    {
+                        "name": "dev-bicepdemo-webapp2",
+                        "asp": "dev-bicepdemo-asp"
+                    }
+                ],
+                "saInfo": [
+                    {
+                        "name": "devbicepdemo1253",
+                        "skuName": "Standard_LRS",
+                        "kind": "StorageV2"
+                    }
+                ]
+            }
+        }
+    }
+}
