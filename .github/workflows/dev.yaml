@@ -16,7 +16,7 @@ env:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   EnvironmentDeploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     environment:
       name: Dev Environment
     # Steps represent a sequence of tasks that will be executed as part of the job
