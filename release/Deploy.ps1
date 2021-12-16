@@ -18,4 +18,4 @@ New-AzResourceGroup -Name $RGName -Location $Region -Force
 
 Write-Warning -Message "Value of Artifacts is $Artifacts"
 
-New-AzResourceGroupDeployment @Params -TemplateFile "$Artifacts\bicep\ALL.bicep"
+New-AzResourceGroupDeployment @Params -TemplateFile "$Artifacts\bicep\SA.bicep"
