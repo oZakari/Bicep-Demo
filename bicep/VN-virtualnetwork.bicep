@@ -13,7 +13,8 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-02-01' = {
       ]
     }
     subnets: [
-      { name: 'Subnet1'
+      { 
+        name: 'Subnet1'
         properties: {
           addressPrefix: '10.10.5.0/24'
         }
