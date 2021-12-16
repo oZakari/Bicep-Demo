@@ -7,12 +7,14 @@ param (
 $TemplateFile = "$Artifacts/bicep/SA.bicep"
 $TemplateParameterFile = "$Artifacts/bicep/0-param-dev-env.json"
 
+
 $Params = @{
     ResourceGroupName     = $RGName
     TemplateParameterFile = $TemplateParameterFile
     TemplateFile          = $TemplateFile
     Verbose               = $true
     WhatIf                = $false
+    ErrorVariable         = "e"
 }
 $Params.getenumerator() | ForEach-Object {
     Write-Verbose $_.Key -Verbose
@@ -28,3 +30,4 @@ Get-item -path $TemplateParameterFile
 New-AzResourceGroup -Name $RGName -Location $Region -Force
 
 New-AzResourceGroupDeployment @Params
+$e
