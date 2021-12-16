@@ -1,8 +1,8 @@
 param (
     [string]$Artifacts = (Get-Item -Path "$PSScriptRoot\.."),
     [string]$Subscription = "ES-CE-LR-INT-ZTROCINSKI",
-    [string]$Region,
-    [string]$RGName
+    [string]$Region = "Central US",
+    [string]$RGName = "dev-bicep-demo"
 )
 
 $Params = @{
