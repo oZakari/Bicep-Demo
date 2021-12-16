@@ -1,11 +1,12 @@
 param (
     [string]$Artifacts = (Get-Item -Path $PSScriptRoot | ForEach-Object Parent | ForEach-Object FullName),
     [string]$Region = "Central US",
-    [string]$RGName = "dev-bicep-demo"
+    [string]$RGName = "dev-bicep-demo",
+    [string]$Environment = "dev"
 )
 
 $TemplateFile = "$Artifacts/bicep/SA.bicep"
-$TemplateParameterFile = "$Artifacts/bicep/0-param-dev-env.json"
+$TemplateParameterFile = "$Artifacts/bicep/0-param-$Environment-env.json"
 
 
 $Params = @{
