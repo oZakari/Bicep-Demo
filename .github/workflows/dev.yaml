@@ -34,5 +34,5 @@ jobs:
       - name: Dev_Subscription
         uses: Azure/powershell@v1
         with:
-          inlineScript: ./release/Deploy.PS1 -RGName $env:RGName -Region $env:Region
+          inlineScript: ./release/Deploy.ps1 -RGName $env:RGName -Region $env:Region
           azPSVersion: latest
