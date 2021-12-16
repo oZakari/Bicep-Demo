@@ -16,4 +16,4 @@ Set-AzContext -Subscription $Subscription
 
 New-AzResourceGroup -Name $RGName -Location $Region -Force
 
-New-AzResourceGroupDeployment @Params -TemplateFile .\bicep\ALL.bicep
+New-AzResourceGroupDeployment @Params -TemplateFile "$Artifacts\bicep\ALL.bicep"
