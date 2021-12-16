@@ -4,12 +4,12 @@ param (
     [string]$RGName = "dev-bicep-demo"
 )
 
-$TemplateFile = "$Artifacts\bicep\hello.bicep"
+$TemplateFile = "$Artifacts\bicep\SA.bicep"
 $TemplateParameterFile = "$Artifacts\bicep\0-param-dev-env.json"
 
 $Params = @{
     ResourceGroupName     = $RGName
-    #TemplateParameterFile = $TemplateParameterFile
+    TemplateParameterFile = $TemplateParameterFile
     TemplateFile          = $TemplateFile
     Verbose               = $true
     WhatIf                = $false
