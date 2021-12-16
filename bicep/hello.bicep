@@ -1,1 +1,1 @@
-output hello string = 'helloworld'  
+output hello string = 'helloworld'
