@@ -8,4 +8,4 @@ module SA 'SA-storageaccount.bicep' = [for (sa, index) in saInfo: {
   params: {
     saInfo: sa
   }
-}]
+}] 
