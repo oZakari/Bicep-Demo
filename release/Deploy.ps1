@@ -7,7 +7,7 @@ param (
 
 $Params = @{
     ResourceGroupName     = $RGName
-    TemplateParameterFile = "$Artifacts\bicep\0-param-dev-env.json"
+    TemplateParameterFile = ".\bicep\0-param-dev-env.json"
     Verbose               = $true
     WhatIf                = $false
 }
@@ -18,4 +18,4 @@ New-AzResourceGroup -Name $RGName -Location $Region -Force
 
 Write-Warning -Message "Value of Artifacts is $Artifacts"
 
-New-AzResourceGroupDeployment @Params -TemplateFile "$Artifacts\bicep\SA.bicep"
+New-AzResourceGroupDeployment @Params -TemplateFile ".\bicep\SA.bicep"
