@@ -28,9 +28,7 @@ jobs:
       - name: Login via Az module
         uses: azure/login@v1
         with:
-            client-id: ${{ secrets.CLIENTID }}
-            tenant-id: ${{ secrets.TENANTID }}
-            subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }} 
+            creds: ${{secrets.AZURE_CREDENTIALS}}
             enable-AzPSSession: true
 
       - name: Dev_Subscription
