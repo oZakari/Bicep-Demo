@@ -8,6 +8,7 @@ param (
 $Params = @{
     ResourceGroupName     = $RGName
     TemplateParameterFile = "$Artifacts\bicep\0-param-dev-env.json"
+    TemplateFile          = "$Artifacts\bicep\SA.bicep"
     Verbose               = $true
     WhatIf                = $false
 }
@@ -32,4 +33,4 @@ Set-AzContext -Subscription $Subscription
 
 New-AzResourceGroup -Name $RGName -Location $Region -Force
 
-New-AzResourceGroupDeployment @Params -TemplateFile "$Artifacts\bicep\SA.bicep"
+New-AzResourceGroupDeployment @Params
