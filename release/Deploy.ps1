@@ -5,7 +5,7 @@ param (
     [string]$Environment = "dev"
 )
 
-$TemplateFile = "$Artifacts/bicep/SA.bicep"
+$TemplateFile = "$Artifacts/bicep/ALL.bicep"
 $TemplateParameterFile = "$Artifacts/bicep/0-param-$Environment-env.json"
 
 
