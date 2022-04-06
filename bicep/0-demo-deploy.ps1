@@ -1,10 +1,10 @@
-$rgname = 'bicepdemo'
+$rgname = 'dev-bicep-demo'
 $region = 'CentralUS'
 Write-Warning -Message "RG is: [$rgname] in Region: [$region]"
 
 $MyParametersDeployALL = @{
     ResourceGroupName     = $rgname
-    TemplateParameterFile = "C:\Repos\Bicep-Demo\Bicep-Demo\bicep\0-param-env1.json"
+    TemplateParameterFile = "C:\Repos\Bicep-Demo\Bicep-Demo\bicep\0-param-dev-env.json"
     Verbose               = $true
     WhatIf                = $false
 }
